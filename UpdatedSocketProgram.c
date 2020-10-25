@@ -53,10 +53,10 @@ int main (int argc, char const *argv[])
 			printf("accept error");
 			exit(1);
 		}	
+		readvalue=read(new_socket,buffer,sizeof(buffer));
+
 		int comparingString=strcmp(buffer,deal);
 
-		readvalue=read(new_socket,buffer,sizeof(buffer));
-	
 		if(comparingString==0){
 			sprintf(buffer,"Server Deal has begun\n");
 			send(new_socket,buffer,strlen(buffer),0);
