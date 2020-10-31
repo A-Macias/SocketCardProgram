@@ -28,7 +28,7 @@ void shuffle_CardDeck(DeckOfCards []);
 void showCards(const DeckOfCards[]);
 
 
-int main()
+int main(int argc, char const *argv[])
 {
     char nl='\n';
     DeckOfCards startingDeck[52]= {"",""};
