@@ -58,7 +58,7 @@ void startDeck(DeckOfCards startingDeck[])
     for(c=0;c<52;c++)
     {
         startingDeck[c].faces_strTest=faces_str[c%13];
-        strncpy(startingDeck[c].suits_strTest, suits_str[c/13],52);
+        strncpy(startingDeck[c].suits_strTest, suits_str[c/13],9);
     }
 }
 
