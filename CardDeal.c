@@ -84,7 +84,7 @@ void showCards(const DeckOfCards startingDeck[])//https://jameshfisher.com/2016/
    int display=0;
    for(display=0;display<52;display++)//https://stackoverflow.com/questions/1000556/what-does-the-s-format-specifier-mean
    {//http://www.cplusplus.com/reference/cstdio/printf/
-       printf("%5s of %-12s",startingDeck[display].faces_strTest,startingDeck[display].suits_strTest);//https://www.sololearn.com/Discuss/1688189/why-we-use-2d-and-5s-in-c-program
+       printf("%5s of %-10s",startingDeck[display].faces_strTest,startingDeck[display].suits_strTest);//https://www.sololearn.com/Discuss/1688189/why-we-use-2d-and-5s-in-c-program
        //https://www.tutorialspoint.com/program-to-print-numbers-columns-wise-in-c
        //https://www.eecis.udel.edu/~sprenkle/cisc105/making_columns.html
        //https://cboard.cprogramming.com/cplusplus-programming/56866-program-prints-numbers-columns.html
