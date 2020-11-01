@@ -13,7 +13,7 @@ int main (int argc, char const *argv[])
 {
 
 	int sf, new_socket,readvalue, deckOfCards[52];
-	char buffer[1024];
+	char buffer[2000];
 	unsigned int portNumber;
 	struct sockaddr_in srvaddr;
 	int addrlen=sizeof(srvaddr);
@@ -45,40 +45,25 @@ int main (int argc, char const *argv[])
 		exit(1);
 	}
 	fprintf(stdout,"Connecting.\n");
+
+	new_socket=accept(sf,(struct sockaddr*)&srvaddr, (socklen_t*)&addrlen);
+	if(new_socket<0){
+		printf("accept error");
+		exit(1);
+	}
+	puts("Connected");
 	
-	while(1){
-
-		new_socket=accept(sf,(struct sockaddr*)&srvaddr, (socklen_t*)&addrlen);
-		if(new_socket<0){
-			printf("accept error");
-			exit(1);
-		}	
-		readvalue=read(new_socket,buffer,sizeof(buffer));
-
-		int comparingString=strcmp(buffer,deal);
-
-		if(comparingString==0){
-			sprintf(buffer,"Server Deal has begun\n");
-			send(new_socket,buffer,strlen(buffer),0);
-
-			for(int c=0;c<52;c++){
-				deckOfCards[c]=c+1;
-				}
-
-			randperm(deckOfCards,52);
-
-			for(int d=0;d<52;d++){
-				sprintf(buffer, "Card %d %d\r\n",d+1, deckOfCards[d]);
-				send(new_socket,buffer, strlen(buffer), 0);
-				}
-		}
-
-		else{
-			sprintf(buffer,"Server is not responding\n");
-			send(new_socket,buffer,strlen(buffer),0);
-			}
-	
-		}
+	while((readvalue=recv(new_socket, buffer, 2000, 0))>0){
+		write(new_socket, buffer, strlen(buffer));
+	}
+	if(readvalue==0){
+		puts("Disconnected");
+		fflush(stdout);
+	}
+	else if(readvalue==-1){
+		sprintf(buffer, "Error in reading on server side");
+		printf("readvalue error");
+	}
 	
 	return 0;
 }
