@@ -103,7 +103,11 @@ int main(int argc, char const *argv[])
         				nl=getchar();//user input to get another shuffle
         				//https://www.geeksforgeeks.org/difference-getchar-getch-getc-getche/
     				}
-			
+			}
+			else if(compareStrings!=0){
+				char str[1024]="Wrong key word.'Deal' is the only key word.";
+				sprintf(output,"%s",str);
+				printf("%s", output);
 			}
 		}
 		
