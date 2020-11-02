@@ -86,14 +86,14 @@ int main(int argc, char const *argv[])
 
 			puts("Server reply :");
 			puts(serv_res);
-			int compareStrings=strcmp(serv_res,deal);
+			int compareStrings=strcmp(mess,deal);
 			if(compareStrings==0)
 			{
-				char nl='\n';
+				char nl='\t';
 				DeckOfCards startingDeck[52]= {"",""};
 				startDeck(startingDeck);
 	   	 		printf("shuffling deck...\n");
-				while('\n'==nl)
+				while('\t'==nl)
     				{
 			        	printf("Here are your cards\n");
 			        	shuffle_CardDeck(startingDeck);
