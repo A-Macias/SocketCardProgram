@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 	struct sockaddr_in serv_addr;
 	unsigned int portNumber;
 	const char *deal="Deal";
-	char serv_res[2000], mess[2000];
+	char serv_res[2000], mess[2000], output[1024];
 	
 	if(argc<=1)
 	{
