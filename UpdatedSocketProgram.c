@@ -19,7 +19,7 @@ int main (int argc, char const *argv[])
 	int addrlen=sizeof(srvaddr);
 	const char *deal="Deal";
 	
-	if(argc<=1){
+	if(argc<=2){
 		printf("Not enough arguements");
 		exit(1);
 	}
